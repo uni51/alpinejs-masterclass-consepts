@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
+    ></script>
+    <title>Animation in Alpine with x-transition</title>
+    <style>
+      .box {
+        height: 200px;
+        width: 200px;
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
-  <title>Animation in Alpine with x-transition</title>
-  <style>
-    .box{
-      height: 200px;
-      width: 200px;
-      background-color: blueviolet;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- 1. Alpine transitions only work with x-show not with x-if
+  <body>
+    <!-- 1. Alpine transitions only work with x-show not with x-if
        2. We can add a simple face and scale animation effect by adding x-transition with it
        3. The default timing of animation is 500ms for both enter and leaving process
        4. We can customize it by using:
@@ -29,18 +31,17 @@
             x-transition.scale.40
   -->
 
-  <div x-data="{ open: false }">
-    <button @click="open = ! open">Toggle</button>
- 
-    <div class="box" x-show="open" 
-      x-transition
-      x-transition:enter.duration.1000ms
-      x-transition:leave.duration.1000ms
-      x-transition.scale.origin.left
-    ></div>
-</div>
+    <div x-data="{ open: false }">
+      <button @click="open = ! open">Toggle</button>
 
-
-</body>
-
+      <div
+        class="box"
+        x-show="open"
+        x-transition
+        x-transition:enter.duration.5000ms
+        x-transition:leave.duration.5000ms
+        x-transition.scale.origin.left
+      ></div>
+    </div>
+  </body>
 </html>
