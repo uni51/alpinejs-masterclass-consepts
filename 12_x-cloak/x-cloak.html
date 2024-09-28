@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Alpine.jsを遅延ロードするためのスクリプト -->
     <script
       defer
       src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
     ></script>
     <title>Hiding Elements with x-cloak</title>
+    <!-- x-cloak属性を持つ要素を非表示にするCSS -->
     <style>
       [x-cloak] {
         display: none;
@@ -17,10 +19,12 @@
   </head>
 
   <body>
-    <!-- x-cloak hides the elements before alpine loads. -->
+    <!-- x-cloak属性によってAlpine.jsがロードされるまで要素を非表示にするデモ -->
 
     <div x-data="{show : false}">
+      <!-- x-show="show"がfalseなので初期状態では非表示、Alpine.jsがロードされると表示可能になる -->
       <div x-show="show" x-cloak>
+        <!-- 下記の各段落は、サンプルテキストを含んでいます -->
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro ullam
           officia non a eligendi. Atque qui eveniet pariatur iure voluptatibus
